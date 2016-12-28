@@ -1,0 +1,1297 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="RxJava(入门)," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前言相信各位看官对RxJava早有耳闻，那么关于什么是RxJava我就不再赘述了，不知道的可自行百度。如果你已经大致了解过什么是RxJava，想开始学习，那么本文不失为你良好的选择，为什么这么说呢，因为我也是刚学几天，正所谓“知己知彼，百战不殆”。网上流传，RxJava的入门门槛高，而经过我这几天的学习，我反而不那么认为，精通我不敢说，但入门确实也不难，不信？我先来个简单的例子预热一下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="我所理解的RxJava——上手其实很简单（一）">
+<meta property="og:url" content="http://yoursite.com/2016/08/27/我所理解的RxJava1/index.html">
+<meta property="og:site_name" content="Weavey's Blog">
+<meta property="og:description" content="前言相信各位看官对RxJava早有耳闻，那么关于什么是RxJava我就不再赘述了，不知道的可自行百度。如果你已经大致了解过什么是RxJava，想开始学习，那么本文不失为你良好的选择，为什么这么说呢，因为我也是刚学几天，正所谓“知己知彼，百战不殆”。网上流传，RxJava的入门门槛高，而经过我这几天的学习，我反而不那么认为，精通我不敢说，但入门确实也不难，不信？我先来个简单的例子预热一下。">
+<meta property="og:updated_time" content="2016-12-28T07:33:14.622Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我所理解的RxJava——上手其实很简单（一）">
+<meta name="twitter:description" content="前言相信各位看官对RxJava早有耳闻，那么关于什么是RxJava我就不再赘述了，不知道的可自行百度。如果你已经大致了解过什么是RxJava，想开始学习，那么本文不失为你良好的选择，为什么这么说呢，因为我也是刚学几天，正所谓“知己知彼，百战不殆”。网上流传，RxJava的入门门槛高，而经过我这几天的学习，我反而不那么认为，精通我不敢说，但入门确实也不难，不信？我先来个简单的例子预热一下。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6366745481279702000',
+      author: '主编大大'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/27/我所理解的RxJava1/"/>
+
+
+
+
+
+  <title> 我所理解的RxJava——上手其实很简单（一） | Weavey's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=60087126";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Weavey's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学无止境，不进则退。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            我的动态
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益宣传
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/27/我所理解的RxJava1/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Weavey">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/head.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Weavey's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Weavey's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                我所理解的RxJava——上手其实很简单（一）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-27T16:54:09+08:00">
+                2016-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/RxJava/" itemprop="url" rel="index">
+                    <span itemprop="name">RxJava</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/08/27/我所理解的RxJava1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/我所理解的RxJava1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/08/27/我所理解的RxJava1/" class="leancloud_visitors" data-flag-title="我所理解的RxJava——上手其实很简单（一）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>相信各位看官对RxJava早有耳闻，那么关于什么是RxJava我就不再赘述了，不知道的可自行百度。如果你已经大致了解过什么是RxJava，想开始学习，那么本文不失为你良好的选择，为什么这么说呢，因为我也是刚学几天，正所谓“知己知彼，百战不殆”。网上流传，RxJava的入门门槛高，而经过我这几天的学习，我反而不那么认为，精通我不敢说，但入门确实也不难，不信？我先来个简单的例子预热一下。<br><a id="more"></a></p>
+<p>先创建个数据发射源,很好理解，就是发射数据用的：</p>
+<pre><code>Observable&lt;String&gt; sender = Observable.create(new Observable.OnSubscribe&lt;String&gt;() {
+
+       @Override
+        public void call(Subscriber&lt;? super String&gt; subscriber) {
+
+            subscriber.onNext(&quot;Hi，Weavey！&quot;);  //发送数据&quot;Hi，Weavey！&quot;
+        }
+    });
+</code></pre><p>再创建个数据接收源，同理，接收数据用的：</p>
+<pre><code>Observer&lt;String&gt; receiver = new Observer&lt;String&gt;() {
+
+        @Override
+        public void onCompleted() {
+
+            //数据接收完成时调用
+        }
+
+        @Override
+        public void onError(Throwable e) {
+
+            //发生错误调用
+        }
+
+        @Override
+        public void onNext(String s) {
+
+           //正常接收数据调用
+            System.out.print(s);  //将接收到来自sender的问候&quot;Hi，Weavey！&quot;
+        }
+    };
+</code></pre><p>好了，将发射源和接收源关联起来：</p>
+<pre><code>sender.subscribe(receiver);
+</code></pre><p>这样就形成RxJava一个简单的用法，sender发射<code>&quot;Hi，Weavey！&quot;</code>，将会被receiver的<code>onNext</code>的接收，通过这个例子，也许你会想到“异步”、“观察者模式”，没错，这些都是RxJava所做的事情，并且让他们变得更简单和简洁，而RxJava所有的一切都将围绕这两个点展开，一个是发射数据，一个是接收数据，是不是很通俗易懂？如果你理解了这点或者你已经知道RxJava就是这么一回事，那么恭喜你，你已经一只脚跨进RxJava的大门了，如果不是！！！！那也无所谓，请继续往下看…</p>
+<h2 id="论概念的重要性"><a href="#论概念的重要性" class="headerlink" title="论概念的重要性"></a>论概念的重要性</h2><p>网上关于RxJava的博文也有很多，我也看过许多，其中不乏有优秀的文章，但绝大部分文章都有一个共同点，就是侧重于讲RxJava中各种强大的操作符，而忽略了最基本的东西——概念，所以一开始我也看的一脸懵逼，看到后面又忘了前面的，脑子里全是问号，这个是什么，那个又是什么，这两个长得怎么那么像。举个不太恰当的例子，概念之于初学者，就像食物之于人，当你饿了，你会想吃面包、牛奶，那你为什么不去吃土呢，因为你知道面包牛奶是用来干嘛的，土是用来干嘛的。同理，前面已经说过，RxJava无非是发送数据与接收数据，那么什么是发射源，什么是接收源，这就是你应该明确的事，也是RxJava的入门条件之一，下面就依我个人理解，对发射源和接收源做个归类，以及RxJava中频繁出现的几个“单词”解释一通，说的不好还请海涵，欢迎补充。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><h3 id="Observable"><a href="#Observable" class="headerlink" title="Observable"></a>Observable</h3><blockquote>
+<p>发射源，英文释义“可观察的”，在观察者模式中称为“被观察者”或“可观察对象”；</p>
+</blockquote>
+<h3 id="Observer"><a href="#Observer" class="headerlink" title="Observer"></a>Observer</h3><blockquote>
+<p>接收源，英文释义“观察者”，没错！就是观察者模式中的“观察者”，可接收Observable、Subject发射的数据；</p>
+</blockquote>
+<h3 id="Subject"><a href="#Subject" class="headerlink" title="Subject"></a>Subject</h3><blockquote>
+<p>Subject是一个比较特殊的对象，既可充当发射源，也可充当接收源，为避免初学者被混淆，本章将不对Subject做过多的解释和使用，重点放在Observable和Observer上，先把最基本方法的使用学会，后面再学其他的都不是什么问题；</p>
+</blockquote>
+<h3 id="Subscriber"><a href="#Subscriber" class="headerlink" title="Subscriber"></a>Subscriber</h3><blockquote>
+<p>“订阅者”，也是接收源，那它跟Observer有什么区别呢？Subscriber实现了Observer接口，比Observer多了一个最重要的方法<code>unsubscribe( )</code>，用来取消订阅，当你不再想接收数据了，可以调用<code>unsubscribe( )</code>方法停止接收，Observer 在 <code>subscribe()</code> 过程中,最终也会被转换成 Subscriber 对象，一般情况下，建议使用Subscriber作为接收源；</p>
+</blockquote>
+<h3 id="Subscription"><a href="#Subscription" class="headerlink" title="Subscription"></a>Subscription</h3><blockquote>
+<p>Observable调用<code>subscribe( )</code>方法返回的对象，同样有<code>unsubscribe( )</code>方法，可以用来取消订阅事件；</p>
+</blockquote>
+<h3 id="Action0"><a href="#Action0" class="headerlink" title="Action0"></a>Action0</h3><blockquote>
+<p>RxJava中的一个接口，它只有一个无参call（）方法，且无返回值，同样还有Action1，Action2…Action9等，Action1封装了含有<em> 1 </em>个参的call（）方法，即call（T t），Action2封装了含有<em> 2 </em>个参数的call方法，即call（T1 t1，T2 t2），以此类推；</p>
+</blockquote>
+<h3 id="Func0"><a href="#Func0" class="headerlink" title="Func0"></a>Func0</h3><blockquote>
+<p>与Action0非常相似，也有call（）方法，但是它是有返回值的，同样也有Func0、Func1…Func9;</p>
+</blockquote>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="Observable的创建"><a href="#Observable的创建" class="headerlink" title="Observable的创建"></a>Observable的创建</h3><h4 id="create"><a href="#create" class="headerlink" title="create"></a>create</h4><blockquote>
+<p>使用create( ),最基本的创建方式：</p>
+</blockquote>
+<pre><code>normalObservable = Observable.create(new Observable.OnSubscribe&lt;String&gt;() {
+@Override
+public void call(Subscriber&lt;? super String&gt; subscriber) {
+    subscriber.onNext(&quot;create1&quot;); //发射一个&quot;create1&quot;的String
+    subscriber.onNext(&quot;create2&quot;); //发射一个&quot;create2&quot;的String
+    subscriber.onCompleted();//发射完成,这种方法需要手动调用onCompleted，才会回调Observer的onCompleted方法
+}});
+</code></pre><h4 id="just"><a href="#just" class="headerlink" title="just"></a>just</h4><blockquote>
+<p>使用just( )，将为你创建一个Observable并自动为你调用<code>onNext( )</code>发射数据：</p>
+</blockquote>
+<pre><code>justObservable = Observable.just(&quot;just1&quot;,&quot;just2&quot;);//依次发送&quot;just1&quot;和&quot;just2&quot;
+</code></pre><h4 id="from"><a href="#from" class="headerlink" title="from"></a>from</h4><blockquote>
+<p>使用from( )，遍历集合，发送每个item：</p>
+</blockquote>
+<pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add(&quot;from1&quot;);
+list.add(&quot;from2&quot;);
+list.add(&quot;from3&quot;);
+fromObservable = Observable.from(list);  //遍历list 每次发送一个
+/** 注意，just()方法也可以传list，但是发送的是整个list对象，而from（）发送的是list的一个item** /
+</code></pre><h4 id="defer"><a href="#defer" class="headerlink" title="defer"></a>defer</h4><blockquote>
+<p>使用defer( )，有观察者订阅时才创建Observable，并且为每个观察者创建一个新的Observable：</p>
+</blockquote>
+<pre><code>deferObservable = Observable.defer(new Func0&lt;Observable&lt;String&gt;&gt;() {
+@Override
+//注意此处的call方法没有Subscriber参数
+public Observable&lt;String&gt; call() {
+    return Observable.just(&quot;deferObservable&quot;);
+}});
+</code></pre><h4 id="interval"><a href="#interval" class="headerlink" title="interval"></a>interval</h4><pre><code>intervalObservable = Observable.interval(1, TimeUnit.SECONDS);//每隔一秒发送一次
+</code></pre><h4 id="range"><a href="#range" class="headerlink" title="range"></a>range</h4><blockquote>
+<p>使用range( ),创建一个发射特定整数序列的Observable，第一个参数为起始值，第二个为发送的个数，如果为0则不发送，负数则抛异常：</p>
+</blockquote>
+<pre><code>rangeObservable = Observable.range(10, 5);//将发送整数10，11，12，13，14
+</code></pre><h4 id="timer"><a href="#timer" class="headerlink" title="timer"></a>timer</h4><blockquote>
+<p>使用timer( ),创建一个Observable，它在一个给定的延迟后发射一个特殊的值，等同于Android中Handler的postDelay( )方法：</p>
+</blockquote>
+<pre><code>timeObservable = Observable.timer(3, TimeUnit.SECONDS);  //3秒后发射一个值
+</code></pre><h4 id="repeat"><a href="#repeat" class="headerlink" title="repeat"></a>repeat</h4><blockquote>
+<p>使用repeat( ),创建一个重复发射特定数据的Observable:</p>
+</blockquote>
+<pre><code>repeatObservable = Observable.just(&quot;repeatObservable&quot;).repeat(3);//重复发射3次
+</code></pre><h3 id="Observer的创建"><a href="#Observer的创建" class="headerlink" title="Observer的创建"></a>Observer的创建</h3><pre><code>mObserver = new Observer&lt;String&gt;() {
+@Override
+public void onCompleted() {
+    LogUtil.log(&quot;onCompleted&quot;);
+}
+@Override
+public void onError(Throwable e) {
+}
+@Override
+public void onNext(String s) {
+    LogUtil.log(s);
+}};
+</code></pre><p>ok，有了Observable和Obsever，我们就可以随便玩了，任取一个已创建的Observable和Observer关联上，即形成一个RxJava的例子，如：</p>
+<pre><code>justObservable.subscribe(mObserver);
+</code></pre><p>mObserver的<code>onNext</code>方法将会依次收到来自justObservable的数据<code>&quot;just1&quot;</code>、<code>&quot;just2&quot;</code>，另外，如果你不在意数据是否接收完或者是否出现错误，即不需要Observer的<code>onCompleted()</code>和<code>onError()</code>方法，可使用<code>Action1</code>，<code>subscribe()</code>支持将<code>Action1</code>作为参数传入,RxJava将会调用它的<code>call</code>方法来接收数据，代码如下：</p>
+<pre><code>justObservable.subscribe(new Action1&lt;String&gt;() {
+  @Override
+  public void call(String s) {
+
+        LogUtil.log(s);
+   }});
+</code></pre><p>以上就是RxJava最简单的用法。看到这里，我也不知道我写的是否简单明了，也许你会想，“哎呀，写个异步的东西，怎么这么麻烦，为什么不用Thread+Handler呢”,那你就错了，RxJava也以代码的简洁深受广大用户喜爱，简洁不能理解为代码量少，而是随着逻辑的复杂，需求的更改，代码可依然能保持极强的阅读性，举个简单的例子（前方高能预警~~~），领导要我从数据库的用户表查找出所有用户数据，我二话不说拿出心仪的RxJava就写：</p>
+<pre><code>Observable.create(new Observable.OnSubscribe&lt;List&lt;User&gt;&gt;() {
+     @Override
+     public void call(Subscriber&lt;? super List&lt;User&gt;&gt; subscriber) {
+         List&lt;User&gt; userList = null;
+         ···
+         //从数据库获取用户表数据并赋给userList
+         ···
+         subscriber.onNext(userList);
+     }
+ }).subscribe(new Action1&lt;List&lt;User&gt;&gt;() {
+     @Override
+     public void call(List&lt;User&gt; users) {
+
+         //获取到用户信息列表
+     }
+ });
+</code></pre><p>但是，领导突然又不想要所有用户了，只要名字叫“小明”的用户，行吧，领导最大，我改（假设名字唯一）：</p>
+<pre><code>Observable.create(new Observable.OnSubscribe&lt;List&lt;User&gt;&gt;() {
+      @Override
+      public void call(Subscriber&lt;? super List&lt;User&gt;&gt; subscriber) {
+          List&lt;User&gt; userList = null;
+          ···
+          //从数据库获取用户表数据并赋给userList
+          ···
+          subscriber.onNext(userList);
+      }
+  }).flatMap(new Func1&lt;List&lt;User&gt;, Observable&lt;User&gt;&gt;() {
+      @Override
+      public Observable&lt;User&gt; call(List&lt;User&gt; users) {
+          return Observable.from(users);
+      }
+  }).filter(new Func1&lt;User, Boolean&gt;() {
+      @Override
+      public Boolean call(User user) {
+          return user.getName().equals(&quot;小明&quot;);
+      }
+  }).subscribe(new Action1&lt;User&gt;() {
+      @Override
+      public void call(User user) {
+          //拿到谜之小明的数据
+      }
+  });
+</code></pre><p>搞定，这时候领导又说，我不要小明了，我要小明的爸爸的数据，（坑爹啊~~），我继续改：</p>
+<pre><code>Observable.create(new Observable.OnSubscribe&lt;List&lt;User&gt;&gt;() {
+        @Override
+        public void call(Subscriber&lt;? super List&lt;User&gt;&gt; subscriber) {
+            List&lt;User&gt; userList = null;
+            ···
+            //从数据库获取用户表数据并赋给userList
+            ···
+            subscriber.onNext(userList);
+        } 
+   }).flatMap(new Func1&lt;List&lt;User&gt;, Observable&lt;User&gt;&gt;() {
+        @Override
+        public Observable&lt;User&gt; call(List&lt;User&gt; users) {
+            return Observable.from(users);
+        }
+    }).filter(new Func1&lt;User, Boolean&gt;() {
+        @Override
+        public Boolean call(User user) {
+            return user.getName().equals(&quot;小明&quot;);
+        }
+    }).map(new Func1&lt;User, User&gt;() {
+        @Override
+        public User call(User user) { 
+            //根据小明的数据user从数据库查找出小明的父亲user2
+            return user2;
+        }
+    }).subscribe(new Action1&lt;User&gt;() {
+        @Override
+        public void call(User user2) {
+          //拿到谜之小明的爸爸的数据
+        }
+    });
+</code></pre><p>搞定，“还想怎么改？领导请说···”。<br>以上例子，涉及到几个操作符，初学者可能无法理解，但是无所谓，这不是重点，我的目的只是为了向你展示RxJava在需求不断变更、逻辑愈加复杂的情况下，依旧可以保持代码简洁、可阅读性强的一面，没有各种回调，也没有谜之缩进！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>看了以上所讲，如果你已经爱上了RxJava，如果你已经全部理解，我确信，你已经跨入RxJava的大门，剩下的只是时间的问题以及如何在实际开发场景中去应用的问题，那么下篇文章，我将继续讲解RxJava中各种强大的操作符，并尽量以实际开发过程中遇到的问题作为例子，提升自己的同时，帮助初学者迅速上手RxJava，如有写的不好的地方，还请见谅，真心欢迎各路大神指点，探讨相关技术。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wx_code.jpg" alt="Weavey wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎扫一扫上面的微信公众号，订阅我的博客！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/pay_wx.png" alt="Weavey WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/pay_ali.png" alt="Weavey Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RxJava-入门/" rel="tag"># RxJava(入门)</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/31/我所理解RxJava2/" rel="prev" title="我所理解的RxJava——上手其实很简单（二）">
+                我所理解的RxJava——上手其实很简单（二） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/27/我所理解的RxJava1/"
+     data-title="我所理解的RxJava——上手其实很简单（一）"
+     data-content=""
+     data-url="http://yoursite.com/2016/08/27/我所理解的RxJava1/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  <p>热评文章</p>
+  <div class="ds-top-threads" data-range="weekly" data-num-items="4"></div>
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/27/我所理解的RxJava1/"
+           data-title="我所理解的RxJava——上手其实很简单（一）" data-url="http://yoursite.com/2016/08/27/我所理解的RxJava1/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.png"
+               alt="Weavey" />
+          <p class="site-author-name" itemprop="name">Weavey</p>
+          <p class="site-description motion-element" itemprop="description">Android开发攻城狮</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/weavey" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://gold.xitu.io/user/56d26aa45bbb50005418bda7" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/1d5d4cb5f17a" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2904968575" target="_blank" title="新浪微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  新浪微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              在线工具
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://developers.google.cn/" title="Google Developers" target="_blank">Google Developers</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.iconfont.cn/plus" title="图标库" target="_blank">图标库</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://tinypng.com/" title="图片压缩" target="_blank">图片压缩</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://romannurik.github.io/AndroidAssetStudio/nine-patches.html" title=".9图制作" target="_blank">.9图制作</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#论概念的重要性"><span class="nav-number">2.</span> <span class="nav-text">论概念的重要性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本概念"><span class="nav-number">3.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Observable"><span class="nav-number">3.1.</span> <span class="nav-text">Observable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Observer"><span class="nav-number">3.2.</span> <span class="nav-text">Observer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subject"><span class="nav-number">3.3.</span> <span class="nav-text">Subject</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subscriber"><span class="nav-number">3.4.</span> <span class="nav-text">Subscriber</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Subscription"><span class="nav-number">3.5.</span> <span class="nav-text">Subscription</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Action0"><span class="nav-number">3.6.</span> <span class="nav-text">Action0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Func0"><span class="nav-number">3.7.</span> <span class="nav-text">Func0</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本用法"><span class="nav-number">4.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Observable的创建"><span class="nav-number">4.1.</span> <span class="nav-text">Observable的创建</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#create"><span class="nav-number">4.1.1.</span> <span class="nav-text">create</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#just"><span class="nav-number">4.1.2.</span> <span class="nav-text">just</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#from"><span class="nav-number">4.1.3.</span> <span class="nav-text">from</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#defer"><span class="nav-number">4.1.4.</span> <span class="nav-text">defer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#interval"><span class="nav-number">4.1.5.</span> <span class="nav-text">interval</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#range"><span class="nav-number">4.1.6.</span> <span class="nav-text">range</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#timer"><span class="nav-number">4.1.7.</span> <span class="nav-text">timer</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#repeat"><span class="nav-number">4.1.8.</span> <span class="nav-text">repeat</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Observer的创建"><span class="nav-number">4.2.</span> <span class="nav-text">Observer的创建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weavey</span>
+</div>
+
+
+<div class="powered-by">
+  <a class="theme-link" href="https://weavey.github.io">个人博客</a>
+</div>
+
+<div class="theme-info">
+  铭记 - 学海无涯，不进则退。
+  </a>
+</div>
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"weavey"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("dnXXt2WIyvXSijVUXvXduFX8-gzGzoHsz", "mnejJj9QApEB8onBeh83Ubdt");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>

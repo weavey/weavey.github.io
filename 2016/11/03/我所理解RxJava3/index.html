@@ -102,16 +102,16 @@
 
 
 
-<meta name="description" content="Android开发攻城狮">
+<meta name="description" content="前言最近诸事缠身，有点忙，终于抽出时间&amp;amp;&amp;amp;有兴致写第三了，有一股深深的罪恶感，废话不多说，还是直接接上篇的活了，讲一讲一些比较常用的操作符吧。然后这篇讲RxJava中强大的Scheduler调度器 ，就是因为它，RxJava才能极其简便的在线程中切换，接着再讲一讲一些常用的操作符，比较简单容易理解的操作符都在本篇罗列出来，以后可能不定时更新这篇文章，复杂的操作符后续分篇讲。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我所理解的RxJava——上手其实很简单（二）">
-<meta property="og:url" content="http://yoursite.com/2016/12/22/我所理解RxJava2/index.html">
+<meta property="og:title" content="我所理解的RxJava——上手其实很简单（三）">
+<meta property="og:url" content="http://yoursite.com/2016/11/03/我所理解RxJava3/index.html">
 <meta property="og:site_name" content="Weavey's Blog">
-<meta property="og:description" content="Android开发攻城狮">
-<meta property="og:updated_time" content="2016-12-22T08:58:37.359Z">
+<meta property="og:description" content="前言最近诸事缠身，有点忙，终于抽出时间&amp;amp;&amp;amp;有兴致写第三了，有一股深深的罪恶感，废话不多说，还是直接接上篇的活了，讲一讲一些比较常用的操作符吧。然后这篇讲RxJava中强大的Scheduler调度器 ，就是因为它，RxJava才能极其简便的在线程中切换，接着再讲一讲一些常用的操作符，比较简单容易理解的操作符都在本篇罗列出来，以后可能不定时更新这篇文章，复杂的操作符后续分篇讲。">
+<meta property="og:updated_time" content="2016-12-28T07:15:00.631Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我所理解的RxJava——上手其实很简单（二）">
-<meta name="twitter:description" content="Android开发攻城狮">
+<meta name="twitter:title" content="我所理解的RxJava——上手其实很简单（三）">
+<meta name="twitter:description" content="前言最近诸事缠身，有点忙，终于抽出时间&amp;amp;&amp;amp;有兴致写第三了，有一股深深的罪恶感，废话不多说，还是直接接上篇的活了，讲一讲一些比较常用的操作符吧。然后这篇讲RxJava中强大的Scheduler调度器 ，就是因为它，RxJava才能极其简便的在线程中切换，接着再讲一讲一些常用的操作符，比较简单容易理解的操作符都在本篇罗列出来，以后可能不定时更新这篇文章，复杂的操作符后续分篇讲。">
 
 
 
@@ -139,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/22/我所理解RxJava2/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/03/我所理解RxJava3/"/>
 
 
 
 
 
-  <title> 我所理解的RxJava——上手其实很简单（二） | Weavey's Blog </title>
+  <title> 我所理解的RxJava——上手其实很简单（三） | Weavey's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -318,7 +318,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/22/我所理解RxJava2/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/03/我所理解RxJava3/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Weavey">
@@ -342,7 +342,7 @@
             
             
               
-                我所理解的RxJava——上手其实很简单（二）
+                我所理解的RxJava——上手其实很简单（三）
               
             
           </h1>
@@ -355,8 +355,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-22T16:54:09+08:00">
-                2016-12-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-03T16:54:09+08:00">
+                2016-11-03
               </time>
             
 
@@ -389,8 +389,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/22/我所理解RxJava2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/22/我所理解RxJava2/" itemprop="commentCount"></span>
+                <a href="/2016/11/03/我所理解RxJava3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/03/我所理解RxJava3/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,7 +400,7 @@
 
           
           
-             <span id="/2016/12/22/我所理解RxJava2/" class="leancloud_visitors" data-flag-title="我所理解的RxJava——上手其实很简单（二）">
+             <span id="/2016/11/03/我所理解RxJava3/" class="leancloud_visitors" data-flag-title="我所理解的RxJava——上手其实很简单（三）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -425,7 +425,221 @@
       
 
       
-        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近诸事缠身，有点忙，终于抽出时间&amp;&amp;有兴致写第三了，有一股深深的罪恶感，废话不多说，还是直接接上篇的活了，讲一讲一些比较常用的操作符吧。然后这篇讲RxJava中强大的Scheduler调度器 ，就是因为它，RxJava才能极其简便的在线程中切换，接着再讲一讲一些常用的操作符，比较简单容易理解的操作符都在本篇罗列出来，以后可能不定时更新这篇文章，复杂的操作符后续分篇讲。</p>
+<a id="more"></a>
+<h2 id="Scheduler"><a href="#Scheduler" class="headerlink" title="Scheduler"></a>Scheduler</h2><p>在讲常用操作符前，先看看Scheduler这个东西，名之为调度器，正因为有这个东西，让RxJava可以从主线程和子线程之间轻松切换，各个Scheduler的具体使用效果看以下解释：</p>
+<h3 id="Schedulers-computation"><a href="#Schedulers-computation" class="headerlink" title="Schedulers.computation( )"></a>Schedulers.computation( )</h3><blockquote>
+<p>用于计算任务，如事件循环或和回调处理，不要用于IO操作(IO操作请使用Schedulers.io())；默认线程数等于处理器的数量;</p>
+</blockquote>
+<h3 id="Schedulers-from-executor"><a href="#Schedulers-from-executor" class="headerlink" title="Schedulers.from(executor)"></a>Schedulers.from(executor)</h3><blockquote>
+<p>使用指定的Executor作为调度器;</p>
+</blockquote>
+<h3 id="Schedulers-immediate"><a href="#Schedulers-immediate" class="headerlink" title="Schedulers.immediate( )"></a>Schedulers.immediate( )</h3><blockquote>
+<p>在当前线程立即开始执行任务;</p>
+</blockquote>
+<h3 id="Schedulers-io"><a href="#Schedulers-io" class="headerlink" title="Schedulers.io( )"></a>Schedulers.io( )</h3><blockquote>
+<p>用于IO密集型任务，如异步阻塞IO操作，这个调度器的线程池会根据需要增长；对于普通的计算任务，请使用Schedulers.computation()；Schedulers.io( )默认是一个CachedThreadScheduler，很像一个有线程缓存的新线程调度器;</p>
+</blockquote>
+<h3 id="Schedulers-newThread"><a href="#Schedulers-newThread" class="headerlink" title="Schedulers.newThread( )"></a>Schedulers.newThread( )</h3><blockquote>
+<p>为每个任务创建一个新线程;</p>
+</blockquote>
+<h3 id="Schedulers-trampoline"><a href="#Schedulers-trampoline" class="headerlink" title="Schedulers.trampoline( )"></a>Schedulers.trampoline( )</h3><blockquote>
+<p>当其它排队的任务完成后，在当前线程排队开始执行;</p>
+</blockquote>
+<h3 id="AndroidSchedulers-mainThread"><a href="#AndroidSchedulers-mainThread" class="headerlink" title="AndroidSchedulers.mainThread()"></a>AndroidSchedulers.mainThread()</h3><blockquote>
+<p>此调度器为RxAndroid特有，顾名思义，运行在Android UI线程上。</p>
+</blockquote>
+<p> 具体如何使用呢，比如从数据库读取数据更新到UI上，假设数据量很大，直接从主线程读取数据，会造成UI卡顿，以前我们常用AnsyTask或者Handler去处理避免出现这类问题，个人认为手写个AnsyTask还是挺麻烦的，但用RxJava就简单多了，例如：</p>
+<pre><code>Observable.create(new Observable.OnSubscribe&lt;Data&gt;() {
+
+    @Override
+    public void call(Subscriber&lt;? super Data&gt; subscriber) {
+        Data data = getData();//从数据库获取
+        subscriber.onNext(data);
+        subscriber.onCompleted();
+    }})
+.subscribeOn(Schedulers.io())
+.observeOn(AndroidSchedulers.mainThread())
+.subscribe(new Action1&lt;Data&gt;() {
+        @Override
+        public void call(Data data) {
+                //更新ui
+        }
+    });
+</code></pre><p>简单粗暴的解释一下，<code>subscribeOn( )</code>决定了发射数据在哪个调度器上执行，<code>observeOn(AndroidSchedulers.mainThread())</code>则指定数据接收发生在UI线程，简直不要太方便。</p>
+<h2 id="常用操作符"><a href="#常用操作符" class="headerlink" title="常用操作符"></a>常用操作符</h2><h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><blockquote>
+<p>最常用且最实用的操作符之一，将对象转换成另一个对象发射出去，应用范围非常广，如数据的转换，数据的预处理等。</p>
+</blockquote>
+<p>例一：数据类型转换，改变最终的接收的数据类型。假设传入本地图片路径，根据路径获取图片的Bitmap。</p>
+<pre><code>Observable.just(filePath).map(new Func1&lt;String, Bitmap&gt;() {
+@Override
+public Bitmap call(String path) {
+    return getBitmapByPath(path);
+}}).subscribe(new Action1&lt;Bitmap&gt;() {
+@Override
+public void call(Bitmap bitmap) {
+    //获取到bitmap，显示
+}});
+</code></pre><p>例二：对数据进行预处理，最后得到理想型数据。实际开发过程中，从后台接口获取到的数据也许不符合我们想要的，这时候可以在获取过程中对得到的数据进行预处理（结合Retrofit）。</p>
+<pre><code>Observable.just(&quot;12345678&quot;).map(new Func1&lt;String, String&gt;() {
+@Override
+public String call(String s) {
+    return s.substring(0,4);//只要前四位
+}})
+.subscribe(new Action1&lt;String&gt;() {
+@Override
+public void call(String s) {
+    Log.i(&quot;mytag&quot;,s);
+}});
+</code></pre><blockquote>
+<p>先说明一下，为了方便理解，所以写的例子都比较简单，不要以为明明可以简单用if-else解决的事，没必要用这种方式去写，当你真正将这些操作符使用到数据处理中去的时候，你就会发现有多方便。</p>
+</blockquote>
+<h3 id="FlatMap"><a href="#FlatMap" class="headerlink" title="FlatMap"></a>FlatMap</h3><blockquote>
+<p>和Map很像但又有所区别，Map只是转换发射的数据类型，而FlatMap可以将原始Observable转换成另一个Observable。还是举例说明吧。假设要打印全国所有学校的名称，可以直接用Map,<br>为了更清晰一点，先贴一下School类：</p>
+</blockquote>
+<pre><code>public class School {
+
+private String name;
+private List&lt;Student&gt; studentList;
+
+public List&lt;Student&gt; getStudentList() {
+    return studentList;
+}    
+public void setStudentList(List&lt;Student&gt; studentList) {
+    this.studentList = studentList;
+}
+public String getName() {
+    return name;
+}
+public void setName(String name) {
+    this.name = name;
+}
+
+public static class Student{
+    private String name;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+        }
+      }
+}
+</code></pre><p>接着用Map打印学校名称：</p>
+<pre><code>List&lt;School&gt; schoolList = new ArrayList&lt;&gt;();
+Observable.from(schoolList).map(new Func1&lt;School, String&gt;() {
+@Override
+public String call(School school) {
+      return school.getName();
+}}).subscribe(new Action1&lt;String&gt;() {
+@Override
+public void call(String schoolName) {
+      Log.i(&quot;mytag&quot;,schoolName);
+}});
+</code></pre><p>再进一步，打印学校所有学生的姓名，先考虑用Map实现，将所有School对象直接转成Student：</p>
+<pre><code>Observable.from(schoolList).map(new Func1&lt;School, School.Student&gt;() {
+@Override
+public School.Student call(School school) {
+    return school.getStudentList();
+}}).subscribe(new Action1&lt;School.Student&gt;() {
+@Override
+public void call(School.Student student) {
+
+        Log.i(&quot;mytag&quot;,student.getName());
+}});
+</code></pre><p>看似可行，但事实上，这是一段错误的代码，细心的人就会发现错误的地方</p>
+<pre><code>@Override
+public School.Student call(School school) {
+    return school.getStudentList();  //错误，Student 是一个对象，返回的却是一个list
+}
+</code></pre><p>所以用Map是无法实现直接打印学校的所有学生名字的，因为Map是一对一的关系，无法将单一的School对象转变成多个Student。前面说到，FlatMap可以改变原始Observable变成另外一个Observable，如果我们能利用<code>from()</code>操作符把<code>school.getStudentList()</code>变成另外一个Observable问题不就迎刃而解了吗，这时候就该FlatMap上场了，来看看它是怎么实现的：</p>
+<pre><code>Observable.from(schoolList).flatMap(new Func1&lt;School, Observable&lt;School.Student&gt;&gt;() {
+@Override
+public Observable&lt;School.Student&gt; call(School school) {
+
+    return Observable.from(school.getStudentList()); //关键，将学生列表以另外一个Observable发射出去
+
+}}).subscribe(new Action1&lt;School.Student&gt;() {
+
+@Override
+public void call(School.Student student) {
+    Log.i(&quot;mytag&quot;,student.getName());
+}});
+</code></pre><blockquote>
+<p>Map和FlatMap在我看来就像孪生兄弟一样，非常实用，实际开发中也我也经常使用，个人觉得要想上手RxJava，掌握这两个操作符必不可少。</p>
+</blockquote>
+<h3 id="Buffer"><a href="#Buffer" class="headerlink" title="Buffer"></a>Buffer</h3><blockquote>
+<p>缓存，可以设置缓存大小，缓存满后，以list的方式将数据发送出去,例：</p>
+</blockquote>
+<pre><code>Observable.just(1,2,3).buffer(2).subscribe(new Action1&lt;List&lt;Integer&gt;&gt;() {
+    @Override
+    public void call(List&lt;Integer&gt; list) {
+        Log.i(&quot;mytag&quot;,&quot;size:&quot;+list.size());
+    }});
+</code></pre><p>运行打印结果如下：</p>
+<pre><code>11-02 20:49:58.370 23392-23392/? I/mytag: size:2
+11-02 20:49:58.370 23392-23392/? I/mytag: size:1
+</code></pre><p>在开发当中，个人经常将Buffer和Map一起使用，常发生在从后台取完数据，对一个List中的数据进行预处理后，再用Buffer缓存后一起发送，保证最后数据接收还是一个List，如下：</p>
+<pre><code>List&lt;School&gt; schoolList = new ArrayList&lt;&gt;();
+Observable.from(schoolList).map(new Func1&lt;School, School&gt;() {
+@Override
+public School call(School school) {
+    school.setName(&quot;NB大学&quot;);  //将所有学校改名
+    return school;
+}}).buffer(schoolList.size())  //缓存起来，最后一起发送
+.subscribe(new Action1&lt;List&lt;School&gt;&gt;() {
+    @Override
+    public void call(List&lt;School&gt; schools) {
+}});
+</code></pre><h3 id="Take"><a href="#Take" class="headerlink" title="Take"></a>Take</h3><blockquote>
+<p>发射前n项数据，还是用上面的例子，假设不要改所有学校的名称了，就改前四个学校的名称：</p>
+</blockquote>
+<pre><code>Observable.from(schoolList).take(4).map(new Func1&lt;School, School&gt;() {
+@Override
+public School call(School school) {
+    school.setName(&quot;NB大学&quot;);
+    return school;
+}}).buffer(4).subscribe(new Action1&lt;List&lt;School&gt;&gt;() {
+
+@Override
+public void call(List&lt;School&gt; schools) {
+
+}});
+</code></pre><h3 id="Distinct"><a href="#Distinct" class="headerlink" title="Distinct"></a>Distinct</h3><blockquote>
+<p>去掉重复的项，比较好理解：</p>
+</blockquote>
+<pre><code>Observable.just(1, 2, 1, 1, 2, 3)
+    .distinct()
+    .subscribe(new Action1&lt;Integer&gt;() {
+        @Override
+        public void call(Integer item) {
+            System.out.println(&quot;Next: &quot; + item);
+        }
+    });
+</code></pre><p>输出</p>
+<pre><code>Next: 1
+Next: 2
+Next: 3
+</code></pre><h3 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h3><blockquote>
+<p>过滤，通过谓词判断的项才会被发射，例如，发射小于4的数据：</p>
+</blockquote>
+<pre><code>Observable.just(1, 2, 3, 4, 5).filter(new Func1&lt;Integer, Boolean&gt;() {
+        @Override
+        public Boolean call(Integer item) {
+            return( item &lt; 4 );
+        }
+    }).subscribe(new Action1&lt;Integer&gt;() {
+      @Override
+      public void call(Integer item) {
+            System.out.println(&quot;Next: &quot; + item);
+  }});
+</code></pre><p>输出：</p>
+<pre><code>Next: 1
+Next: 2
+Next: 3
+</code></pre><p> 这一篇就先讲这么多吧，重点掌握Map和FlatMap操作符，因为真的很实用、很实用、很实用，重要的事讲三遍。</p>
+<h2 id="后语"><a href="#后语" class="headerlink" title="后语"></a>后语</h2><p>其实，讲真，到现在RxJava已经非常普遍，用的人很多，网上的干货也很多，写这几篇文章呢，除了帮助想开始学RxJava的新手入门，最重要的还是起到一个笔记的作用吧，好记性不如烂笔头，这是真的。好吧，这篇就写这么多了，欢迎指出问题，互相交流学习。</p>
+
       
     </div>
 
@@ -483,8 +697,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/22/我所理解RxJava3/" rel="next" title="我所理解的RxJava——上手其实很简单（三）">
-                <i class="fa fa-chevron-left"></i> 我所理解的RxJava——上手其实很简单（三）
+              <a href="/2016/09/07/直接拿去用之Dialog/" rel="next" title="直接拿去用！几种常见Dialog，懒人必收">
+                <i class="fa fa-chevron-left"></i> 直接拿去用！几种常见Dialog，懒人必收
               </a>
             
           </div>
@@ -493,8 +707,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/22/直接拿去用之Dialog/" rel="prev" title="直接拿去用！几种常见Dialog，懒人必收">
-                直接拿去用！几种常见Dialog，懒人必收 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/28/直接拿去用之LoadingLayout/" rel="prev" title="直接拿去用！每个App都会用到的LoadingLayout">
+                直接拿去用！每个App都会用到的LoadingLayout <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -510,10 +724,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/22/我所理解RxJava2/"
-     data-title="我所理解的RxJava——上手其实很简单（二）"
+        <div class="ds-share flat" data-thread-key="2016/11/03/我所理解RxJava3/"
+     data-title="我所理解的RxJava——上手其实很简单（三）"
      data-content=""
-     data-url="http://yoursite.com/2016/12/22/我所理解RxJava2/">
+     data-url="http://yoursite.com/2016/11/03/我所理解RxJava3/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -543,8 +757,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/22/我所理解RxJava2/"
-           data-title="我所理解的RxJava——上手其实很简单（二）" data-url="http://yoursite.com/2016/12/22/我所理解RxJava2/">
+      <div class="ds-thread" data-thread-key="2016/11/03/我所理解RxJava3/"
+           data-title="我所理解的RxJava——上手其实很简单（三）" data-url="http://yoursite.com/2016/11/03/我所理解RxJava3/">
       </div>
     
   </div>
@@ -568,8 +782,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/head.png"
@@ -686,6 +909,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scheduler"><span class="nav-number">2.</span> <span class="nav-text">Scheduler</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Schedulers-computation"><span class="nav-number">2.1.</span> <span class="nav-text">Schedulers.computation( )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schedulers-from-executor"><span class="nav-number">2.2.</span> <span class="nav-text">Schedulers.from(executor)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schedulers-immediate"><span class="nav-number">2.3.</span> <span class="nav-text">Schedulers.immediate( )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schedulers-io"><span class="nav-number">2.4.</span> <span class="nav-text">Schedulers.io( )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schedulers-newThread"><span class="nav-number">2.5.</span> <span class="nav-text">Schedulers.newThread( )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Schedulers-trampoline"><span class="nav-number">2.6.</span> <span class="nav-text">Schedulers.trampoline( )</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidSchedulers-mainThread"><span class="nav-number">2.7.</span> <span class="nav-text">AndroidSchedulers.mainThread()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用操作符"><span class="nav-number">3.</span> <span class="nav-text">常用操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">3.1.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FlatMap"><span class="nav-number">3.2.</span> <span class="nav-text">FlatMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buffer"><span class="nav-number">3.3.</span> <span class="nav-text">Buffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Take"><span class="nav-number">3.4.</span> <span class="nav-text">Take</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Distinct"><span class="nav-number">3.5.</span> <span class="nav-text">Distinct</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Filter"><span class="nav-number">3.6.</span> <span class="nav-text">Filter</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后语"><span class="nav-number">4.</span> <span class="nav-text">后语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

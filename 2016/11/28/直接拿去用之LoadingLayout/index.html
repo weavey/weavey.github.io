@@ -102,16 +102,18 @@
 
 
 
-<meta name="description" content="Android开发攻城狮">
+<meta name="description" content="前言项目里都会遇到几种页面，分别为加载中、无网络、无数据、出错四种情况，经常要使用，所以封成库引用了，方便使用，顺便分享出来。先看一下效果：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="直接拿去用！每个App都会用到的LoadingLayout">
-<meta property="og:url" content="http://yoursite.com/2016/12/22/直接拿去用之LoadingLayout/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/11/28/直接拿去用之LoadingLayout/index.html">
 <meta property="og:site_name" content="Weavey's Blog">
-<meta property="og:description" content="Android开发攻城狮">
-<meta property="og:updated_time" content="2016-12-22T09:04:28.151Z">
+<meta property="og:description" content="前言项目里都会遇到几种页面，分别为加载中、无网络、无数据、出错四种情况，经常要使用，所以封成库引用了，方便使用，顺便分享出来。先看一下效果：">
+<meta property="og:image" content="https://dn-mhke0kuv.qbox.me/341fb9f9a8edfbe56649.gif">
+<meta property="og:updated_time" content="2016-12-28T07:48:06.048Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="直接拿去用！每个App都会用到的LoadingLayout">
-<meta name="twitter:description" content="Android开发攻城狮">
+<meta name="twitter:description" content="前言项目里都会遇到几种页面，分别为加载中、无网络、无数据、出错四种情况，经常要使用，所以封成库引用了，方便使用，顺便分享出来。先看一下效果：">
+<meta name="twitter:image" content="https://dn-mhke0kuv.qbox.me/341fb9f9a8edfbe56649.gif">
 
 
 
@@ -139,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/22/直接拿去用之LoadingLayout/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/28/直接拿去用之LoadingLayout/"/>
 
 
 
@@ -318,7 +320,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/22/直接拿去用之LoadingLayout/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/28/直接拿去用之LoadingLayout/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Weavey">
@@ -355,8 +357,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-22T16:54:09+08:00">
-                2016-12-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-28T16:54:09+08:00">
+                2016-11-28
               </time>
             
 
@@ -389,8 +391,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/22/直接拿去用之LoadingLayout/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/22/直接拿去用之LoadingLayout/" itemprop="commentCount"></span>
+                <a href="/2016/11/28/直接拿去用之LoadingLayout/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/28/直接拿去用之LoadingLayout/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,7 +402,7 @@
 
           
           
-             <span id="/2016/12/22/直接拿去用之LoadingLayout/" class="leancloud_visitors" data-flag-title="直接拿去用！每个App都会用到的LoadingLayout">
+             <span id="/2016/11/28/直接拿去用之LoadingLayout/" class="leancloud_visitors" data-flag-title="直接拿去用！每个App都会用到的LoadingLayout">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -425,7 +427,100 @@
       
 
       
-        
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>项目里都会遇到几种页面，分别为加载中、无网络、无数据、出错四种情况，经常要使用，所以封成库引用了，方便使用，顺便分享出来。先看一下效果：<br><a id="more"></a></p>
+<p><img src="https://dn-mhke0kuv.qbox.me/341fb9f9a8edfbe56649.gif" alt=""></p>
+<p>原理比较简单，继承FrameLayout，在xml渲染完成后，加上加载中、无网络、无数据、出错四个页面，根据需要控制显示哪一层，花了些时间，开了很多方法出来，支持很多属性的设置，算是比较实用，源码里已对各个方法的作用都加了注释，就不做过多解释了，项目GitHub地址：<a href="https://github.com/weavey/LoadingLayoutDemo" target="_blank" rel="external">https://github.com/weavey/LoadingLayoutDemo</a>，感兴趣的可以看看，欢迎指出问题。</p>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>gradle引用：</p>
+<blockquote>
+<p>compile ‘com.lai.weavey:loadinglayout:1.2’</p>
+</blockquote>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><blockquote>
+<p>LoadingLayout支持全局配置，对所有使用到的地方都起效，需要在Application中配置，如下：</p>
+</blockquote>
+<pre><code>public class App extends Application {
+
+@Override
+public void onCreate() {
+    super.onCreate();
+
+    LoadingLayout.getConfig()
+            .setErrorText(&quot;出错啦~请稍后重试！&quot;)
+            .setEmptyText(&quot;抱歉，暂无数据&quot;)
+            .setNoNetworkText(&quot;无网络连接，请检查您的网络···&quot;)
+            .setErrorImage(R.mipmap.define_error)
+            .setEmptyImage(R.mipmap.define_empty)
+            .setNoNetworkImage(R.mipmap.define_nonetwork)
+            .setAllTipTextColor(R.color.gray)
+            .setAllTipTextSize(14)
+            .setReloadButtonText(&quot;点我重试哦&quot;)
+            .setReloadButtonTextSize(14)
+            .setReloadButtonTextColor(R.color.gray)
+            .setReloadButtonWidthAndHeight(150,40);
+    }
+}
+</code></pre><blockquote>
+<p>由于“加载中”的页面，可能每个App都不一样，因此，LoadingLayout支持自定义LoadingPage，如下：</p>
+</blockquote>
+<pre><code>LoadingLayout.getConfig().setLoadingPageLayout(R.layout.define_loading_page);
+</code></pre><blockquote>
+<p>同时，为了适应个别界面的“特殊需求”，LoadingLayout也支持局部设置各种属性，仅对当前对象生效，不影响全局。如下：</p>
+</blockquote>
+<pre><code>LoadingLayout  loading = (LoadingLayout) findViewById(R.id.loading_layout);
+loading.setLoadingPage(R.layout.define_loading_page)
+       .setEmptyText(&quot;暂无报告数据&quot;)
+       .setErrorText(&quot;&quot;)
+       .setNoNetworkText(&quot;&quot;)
+       .setErrorImage(R.mipmap.ic_launcher)
+       .setErrorTextSize(16)
+       .setReloadButtonText(&quot;点我重新加载哦&quot;); //等等
+</code></pre><blockquote>
+<p>为ReloadButton设置监听:</p>
+</blockquote>
+<pre><code>loadingLayout.setOnReloadListener(new LoadingLayout.OnReloadListener() {
+        @Override
+        public void onReload(View v) {
+
+        }
+    });
+</code></pre><blockquote>
+<p>设置显示的页面：</p>
+</blockquote>
+<pre><code>loadingLayout.setStatus(LoadingLayout.Loading);//加载中
+loadingLayout.setStatus(LoadingLayout.Empty);//无数据
+loadingLayout.setStatus(LoadingLayout.Error);//错误
+loadingLayout.setStatus(LoadingLayout.No_Network);//无网络
+loadingLayout.setStatus(LoadingLayout.Success);//加载成功
+</code></pre><blockquote>
+<p>最后，在xml里面使用：</p>
+</blockquote>
+<pre><code>&lt;com.weavey.loading.lib.LoadingLayout
+xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;
+android:paddingBottom=&quot;@dimen/activity_vertical_margin&quot;
+android:paddingLeft=&quot;@dimen/activity_horizontal_margin&quot;
+android:paddingRight=&quot;@dimen/activity_horizontal_margin&quot;
+android:paddingTop=&quot;@dimen/activity_vertical_margin&quot;
+app:isFirstVisible=&quot;true&quot;&gt;
+
+&lt;TextView
+    android:background=&quot;@color/colorPrimary&quot;
+    android:visibility=&quot;visible&quot;
+    android:gravity=&quot;center&quot;
+    android:textColor=&quot;@android:color/white&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:text=&quot;ContentView&quot;/&gt;
+
+&lt;/com.weavey.loading.lib.LoadingLayout&gt;
+</code></pre><blockquote>
+<p>注意：</p>
+<p>（1）isFirstVisible属性用来控制contentView一开始是否隐藏，由于LoadingLayout原理是在xml渲染完成后在contentView上铺上三层View，因此，一开始如果不隐藏，等contentView渲染完成后调用: <code>loadingLayout.setStatus(LoadingLayout.Loading);</code><br>会造成界面闪烁的效果，影响体验，因此默认将contentView隐藏，所以数据加载完成后一定要调用<code>loadingLayout.setStatus(LoadingLayout.Success);</code>，将contentView显示出来。这样也能解决未获取到数据的情况下，被用户看到杂乱无章的布局，个人还是比较喜欢默认隐藏contentView；</p>
+<p>（2）为了方便管理，LoadingLayout只能有一个直属子View，类似ScrollView，添加两个直属子View会抛出异常<code>throw new IllegalStateException(&quot;LoadingLayout can host only one direct child&quot;);</code>；</p>
+<p>（3）由于AS会直接将自定义View的特性反应在预览界面，所以在使用LoadingLayout的时候，会无法看到被LoadingLayout包裹住的布局（默认为gone），因此也可以将isFirstVisible属性暂时设为true，预览布局。</p>
+</blockquote>
+
       
     </div>
 
@@ -483,8 +578,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/22/我所理解的RxJava1/" rel="next" title="我所理解的RxJava——上手其实很简单（一）">
-                <i class="fa fa-chevron-left"></i> 我所理解的RxJava——上手其实很简单（一）
+              <a href="/2016/11/03/我所理解RxJava3/" rel="next" title="我所理解的RxJava——上手其实很简单（三）">
+                <i class="fa fa-chevron-left"></i> 我所理解的RxJava——上手其实很简单（三）
               </a>
             
           </div>
@@ -492,10 +587,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/12/22/我所理解RxJava3/" rel="prev" title="我所理解的RxJava——上手其实很简单（三）">
-                我所理解的RxJava——上手其实很简单（三） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -510,10 +601,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/22/直接拿去用之LoadingLayout/"
+        <div class="ds-share flat" data-thread-key="2016/11/28/直接拿去用之LoadingLayout/"
      data-title="直接拿去用！每个App都会用到的LoadingLayout"
      data-content=""
-     data-url="http://yoursite.com/2016/12/22/直接拿去用之LoadingLayout/">
+     data-url="http://yoursite.com/2016/11/28/直接拿去用之LoadingLayout/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -543,8 +634,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/22/直接拿去用之LoadingLayout/"
-           data-title="直接拿去用！每个App都会用到的LoadingLayout" data-url="http://yoursite.com/2016/12/22/直接拿去用之LoadingLayout/">
+      <div class="ds-thread" data-thread-key="2016/11/28/直接拿去用之LoadingLayout/"
+           data-title="直接拿去用！每个App都会用到的LoadingLayout" data-url="http://yoursite.com/2016/11/28/直接拿去用之LoadingLayout/">
       </div>
     
   </div>
@@ -568,8 +659,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/head.png"
@@ -686,6 +786,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方式"><span class="nav-number">2.</span> <span class="nav-text">使用方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用说明"><span class="nav-number">3.</span> <span class="nav-text">使用说明</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>

@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="直接拿去用," />
+  <meta name="keywords" content="RxJava(入门)," />
 
 
 
@@ -102,16 +102,16 @@
 
 
 
-<meta name="description" content="Android开发攻城狮">
+<meta name="description" content="Subject关于Subject，官方文档的解释是这样的：Subject可以看成是一个桥梁或者代理，在某些ReactiveX实现中（如RxJava），它同时充当了Observer和Observable的角色。因为它是一个Observer，它可以订阅一个或多个Observable；又因为它是一个Observable，它可以转发它收到(Observe)的数据，也可以发射新的数据。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="直接拿去用！几种常见Dialog，懒人必收">
-<meta property="og:url" content="http://yoursite.com/2016/12/22/直接拿去用之Dialog/index.html">
+<meta property="og:title" content="我所理解的RxJava——上手其实很简单（二）">
+<meta property="og:url" content="http://yoursite.com/2016/08/31/我所理解RxJava2/index.html">
 <meta property="og:site_name" content="Weavey's Blog">
-<meta property="og:description" content="Android开发攻城狮">
-<meta property="og:updated_time" content="2016-12-22T09:04:36.576Z">
+<meta property="og:description" content="Subject关于Subject，官方文档的解释是这样的：Subject可以看成是一个桥梁或者代理，在某些ReactiveX实现中（如RxJava），它同时充当了Observer和Observable的角色。因为它是一个Observer，它可以订阅一个或多个Observable；又因为它是一个Observable，它可以转发它收到(Observe)的数据，也可以发射新的数据。">
+<meta property="og:updated_time" content="2016-12-28T07:14:31.623Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="直接拿去用！几种常见Dialog，懒人必收">
-<meta name="twitter:description" content="Android开发攻城狮">
+<meta name="twitter:title" content="我所理解的RxJava——上手其实很简单（二）">
+<meta name="twitter:description" content="Subject关于Subject，官方文档的解释是这样的：Subject可以看成是一个桥梁或者代理，在某些ReactiveX实现中（如RxJava），它同时充当了Observer和Observable的角色。因为它是一个Observer，它可以订阅一个或多个Observable；又因为它是一个Observable，它可以转发它收到(Observe)的数据，也可以发射新的数据。">
 
 
 
@@ -139,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/12/22/直接拿去用之Dialog/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/31/我所理解RxJava2/"/>
 
 
 
 
 
-  <title> 直接拿去用！几种常见Dialog，懒人必收 | Weavey's Blog </title>
+  <title> 我所理解的RxJava——上手其实很简单（二） | Weavey's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -318,7 +318,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/22/直接拿去用之Dialog/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/08/31/我所理解RxJava2/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Weavey">
@@ -342,7 +342,7 @@
             
             
               
-                直接拿去用！几种常见Dialog，懒人必收
+                我所理解的RxJava——上手其实很简单（二）
               
             
           </h1>
@@ -355,8 +355,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-22T16:54:22+08:00">
-                2016-12-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-31T16:54:09+08:00">
+                2016-08-31
               </time>
             
 
@@ -374,8 +374,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
+                  <a href="/categories/RxJava/" itemprop="url" rel="index">
+                    <span itemprop="name">RxJava</span>
                   </a>
                 </span>
 
@@ -389,8 +389,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/12/22/直接拿去用之Dialog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/22/直接拿去用之Dialog/" itemprop="commentCount"></span>
+                <a href="/2016/08/31/我所理解RxJava2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/31/我所理解RxJava2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -400,7 +400,7 @@
 
           
           
-             <span id="/2016/12/22/直接拿去用之Dialog/" class="leancloud_visitors" data-flag-title="直接拿去用！几种常见Dialog，懒人必收">
+             <span id="/2016/08/31/我所理解RxJava2/" class="leancloud_visitors" data-flag-title="我所理解的RxJava——上手其实很简单（二）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -425,7 +425,197 @@
       
 
       
-        
+        <h2 id="Subject"><a href="#Subject" class="headerlink" title="Subject"></a>Subject</h2><p>关于Subject，官方文档的解释是这样的：Subject可以看成是一个桥梁或者代理，在某些ReactiveX实现中（如RxJava），它同时充当了Observer和Observable的角色。因为它是一个Observer，它可以订阅一个或多个Observable；又因为它是一个Observable，它可以转发它收到(Observe)的数据，也可以发射新的数据。<a id="more"></a>从官方解释中，我提取出三个要点：</p>
+<ol>
+<li>它可以充当Observable；</li>
+<li>它可以充当Observer；</li>
+<li>它是Observable和Observer之间的桥梁；</li>
+</ol>
+<p>接下来对这三个要点解释一下，但在解释之前，要先介绍一下Subject的种类， Subject是一个抽象类，不能通过new来实例化Subject，所以Subject有四个实现类，分别为<strong>AsyncSubject</strong>、<strong>BehaviorSubject</strong>、<strong>PublishSubject</strong>和<strong>ReplaySubject</strong>，每个实现类都有特定的“技能”，下面结合代码来介绍一下它们各自的“技能”。注意，所有的实现类都由<code>create()</code>方法实例化，无需new,所有的实现类调用<code>onCompleted()</code>或<code>onError()</code>,它的Observer将不再接收数据；</p>
+<hr>
+<h2 id="Subject的分类解析"><a href="#Subject的分类解析" class="headerlink" title="Subject的分类解析"></a>Subject的分类解析</h2><h3 id="AsyncSubject"><a href="#AsyncSubject" class="headerlink" title="AsyncSubject"></a>AsyncSubject</h3><p><code>Observer</code>会接收<code>AsyncSubject</code>的<code>onComplete()</code>之前的最后一个数据，如果因异常而终止,<code>AsyncSubject</code>将不会释放任何数据，但是会向<code>Observer</code>传递一个异常通知。示例代码如下：</p>
+<pre><code>AsyncSubject&lt;String&gt; asyncSubject = AsyncSubject.create();
+asyncSubject.onNext(&quot;asyncSubject1&quot;);
+asyncSubject.onNext(&quot;asyncSubject2&quot;);
+asyncSubject.onNext(&quot;asyncSubject3&quot;);  
+asyncSubject.onCompleted();
+asyncSubject.subscribe(new Observer&lt;String&gt;() {
+    @Override
+    public void onCompleted() {
+
+        LogUtil.log(&quot;asyncSubject onCompleted&quot;);  //输出 asyncSubject onCompleted
+    }
+
+    @Override
+    public void onError(Throwable e) {
+
+        LogUtil.log(&quot;asyncSubject onError&quot;);  //不输出（异常才会输出）
+    }
+
+    @Override
+    public void onNext(String s) {
+
+        LogUtil.log(&quot;asyncSubject:&quot;+s);  //输出asyncSubject:asyncSubject3
+    }
+});
+</code></pre><p>以上代码，<code>Observer</code>只会接收<code>asyncSubject</code>的<code>onCompleted()</code>被调用前的最后一个数据，即<code>asyncSubject3</code>，如果不调用<code>onCompleted()</code>，<code>Subscriber</code>将不接收任何数据。</p>
+<h3 id="BehaviorSubject"><a href="#BehaviorSubject" class="headerlink" title="BehaviorSubject"></a>BehaviorSubject</h3><p><code>Observer</code>会接收到<code>BehaviorSubject</code>被订阅之前的最后一个数据，再接收其他发射过来的数据，如果<code>BehaviorSubject</code>被订阅之前没有发送任何数据，则会发送一个默认数据。（注意跟<code>AsyncSubject</code>的区别，<code>AsyncSubject</code>要手动调用<code>onCompleted()</code>，且它的<code>Observer</code>会接收到<code>onCompleted()</code>前发送的最后一个数据，之后不会再接收数据，而<code>BehaviorSubject</code>不需手动调用<code>onCompleted()</code>，它的<code>Observer</code>接收的是<code>BehaviorSubject</code>被订阅前发送的最后一个数据，两个的分界点不一样，且之后还会继续接收数据。）示例代码如下：</p>
+<pre><code>BehaviorSubject&lt;String&gt; behaviorSubject = BehaviorSubject.create(&quot;default&quot;);
+behaviorSubject.onNext(&quot;behaviorSubject1&quot;);
+behaviorSubject.onNext(&quot;behaviorSubject2&quot;);
+    behaviorSubject.subscribe(new Observer&lt;String&gt;() {
+        @Override
+        public void onCompleted() {
+
+            LogUtil.log(&quot;behaviorSubject:complete&quot;);
+        }
+
+        @Override
+        public void onError(Throwable e) {
+
+            LogUtil.log(&quot;behaviorSubject:error&quot;);
+        }
+
+        @Override
+        public void onNext(String s) {
+
+            LogUtil.log(&quot;behaviorSubject:&quot;+s);
+        }
+    });
+
+    behaviorSubject.onNext(&quot;behaviorSubject3&quot;);
+    behaviorSubject.onNext(&quot;behaviorSubject4&quot;);
+</code></pre><p>以上代码，<code>Observer</code>会接收到<code>behaviorSubject2</code>、<code>behaviorSubject3</code>、<code>behaviorSubject4</code>，如果在<code>behaviorSubject.subscribe()</code>之前不发送<code>behaviorSubject1</code>、<code>behaviorSubject2</code>，则<code>Observer</code>会先接收到<code>default</code>,再接收<code>behaviorSubject3</code>、<code>behaviorSubject4</code>。</p>
+<h3 id="PublishSubject"><a href="#PublishSubject" class="headerlink" title="PublishSubject"></a>PublishSubject</h3><p><code>PublishSubject</code>比较容易理解，相对比其他<code>Subject</code>常用，它的<code>Observer</code>只会接收到<code>PublishSubjec</code>t被订阅之后发送的数据。示例代码如下：</p>
+<pre><code>PublishSubject&lt;String&gt; publishSubject = PublishSubject.create();
+publishSubject.onNext(&quot;publishSubject1&quot;);
+publishSubject.onNext(&quot;publishSubject2&quot;);
+publishSubject.subscribe(new Observer&lt;String&gt;() {
+        @Override
+        public void onCompleted() {
+
+        }
+
+        @Override
+        public void onError(Throwable e) {
+
+        }
+
+        @Override
+        public void onNext(String s) {
+            LogUtil.log(&quot;publishSubject observer1:&quot;+s);
+        }
+    });
+publishSubject.onNext(&quot;publishSubject3&quot;);
+publishSubject.onNext(&quot;publishSubject4&quot;);
+</code></pre><p>以上代码，<code>Observer</code>只会接收到”<code>behaviorSubject3</code>“、”<code>behaviorSubject4</code>“。</p>
+<h3 id="ReplaySubject"><a href="#ReplaySubject" class="headerlink" title="ReplaySubject"></a>ReplaySubject</h3><p><code>ReplaySubject</code>会发射所有数据给观察者，无论它们是何时订阅的。也有其它版本的<code>ReplaySubject</code>，在重放缓存增长到一定大小的时候或过了一段时间后会丢弃旧的数据。示例代码如下：</p>
+<pre><code>ReplaySubject&lt;String&gt;replaySubject = ReplaySubject.create(); //创建默认初始缓存容量大小为16的ReplaySubject，当数据条目超过16会重新分配内存空间，使用这种方式，不论ReplaySubject何时被订阅，Observer都能接收到数据
+//replaySubject = ReplaySubject.create(100);//创建指定初始缓存容量大小为100的ReplaySubject
+//replaySubject = ReplaySubject.createWithSize(2);//只缓存订阅前最后发送的2条数据 
+//replaySubject=ReplaySubject.createWithTime(1,TimeUnit.SECONDS,Schedulers.computation());  //replaySubject被订阅前的前1秒内发送的数据才能被接收     
+replaySubject.onNext(&quot;replaySubject:pre1&quot;);
+replaySubject.onNext(&quot;replaySubject:pre2&quot;);
+replaySubject.onNext(&quot;replaySubject:pre3&quot;);
+replaySubject.subscribe(new Action1&lt;String&gt;() {
+    @Override
+    public void call(String s) {
+            LogUtil.log(&quot;replaySubject:&quot; + s);
+    }
+});
+replaySubject.onNext(&quot;replaySubject:after1&quot;);
+replaySubject.onNext(&quot;replaySubject:after2&quot;);
+</code></pre><p>以上代码，由于情况比较多，注释也已解释的相当清楚，就不对输出结果一一表述了，有疑问的自行copy代码去测试一下。至此，四种<code>Subject</code>类型已经介绍完毕，但是需要注意，如果你把 <code>Subject</code> 当作一个 <code>Subscriber</code>使用，不要从多个线程中调用它的<code>onNext</code>方法（包括其它的on系列方法），这可能导致同时（非顺序）调用，这会违反<code>Observable</code>协议，给<code>Subject</code>的结果增加了不确定性。要避免此类问题，官方提出了“串行化”，你可以将 <code>Subject</code> 转换为一个 <code>SerializedSubject</code> ，类似于这样：</p>
+<pre><code>SerializedSubject&lt;String, Integer&gt; ser = new SerializedSubject(publishSubject);
+</code></pre><h2 id="要点解答"><a href="#要点解答" class="headerlink" title="要点解答"></a>要点解答</h2><p>接下来，我们继续前面提出的问题，<strong>为什么说Subject既可充当<code>Observable</code>，又可充当<code>Observer</code>，是它们两个之间的桥梁呢？</strong> 经过前面的例子，也许有些人已经大概理解了，不理解的且听我细细道来。首先，从理论上讲，<code>Subject</code>继承了<code>Observable</code>，又实现了<code>Observer</code>接口，所以说它既是<code>Observable</code>又是<code>Observer</code>，完全合理。从实际应用上讲，<code>Subject</code>也能实现<code>Observable</code>和<code>Observer</code>相同的功能，口说无凭，我们还是通过代码来证实比较有说服力。<br>创建Observable并发射数据：</p>
+<pre><code>Observable.create(new Observable.OnSubscribe&lt;String&gt;() {
+        @Override
+        public void call(Subscriber&lt;? super String&gt; subscriber) {
+
+            subscriber.onNext(&quot;I&apos;m Observable&quot;);
+            subscriber.onCompleted();
+        }
+    });
+</code></pre><p>用Subject实现为：</p>
+<pre><code>PublishSubject&lt;String&gt; publishSubject = PublishSubject.create();
+publishSubject.onNext(&quot;as Observable&quot;);
+publishSubject.onCompleted();
+</code></pre><p>创建Observer订阅Observable并接收数据：    </p>
+<pre><code>mObservable.subscribe(new Observer&lt;String&gt;() {
+    @Override
+     public void onCompleted() {
+
+    }
+
+    @Override
+    public void onError(Throwable e) {
+
+    }
+
+    @Override
+    public void onNext(String s) {
+
+            //接收数据
+    }
+});
+</code></pre><p>用Subject实现为：</p>
+<pre><code>publishSubject.subscribe(new Observer&lt;String&gt;() {
+       @Override
+       public void onCompleted() {
+
+       }
+
+       @Override
+       public void onError(Throwable e) {
+
+       }
+
+       @Override
+       public void onNext(String s) {
+
+       }
+   });
+</code></pre><p>也许有人会问，不是说Subject也可以作为Observer，不能把Subject当作Observer传入subscribe()中吗？回答是：当然可以！就象这样：</p>
+<pre><code>PublishSubject&lt;String&gt; publishSubject = PublishSubject.create();
+Observable.create(new Observable.OnSubscribe&lt;String&gt;() {
+    @Override
+    public void call(Subscriber&lt;? super String&gt; subscriber) {
+
+        subscriber.onNext(&quot;as Observer&quot;); 
+        subscriber.onCompleted();
+    }
+}).subscribe(publishSubject);
+</code></pre><p>有没有发现问题？publishSubject没有重写<code>onNext()</code>方法啊，在哪接收的数据？这就是前面说的“桥梁”的问题了，尽管把Subject作为Observer传入<code>subscribe()</code>，但接收数据还是要通过Observer来接收，借用Subject来连接Observable和Observer，整体代码如下：</p>
+<pre><code>PublishSubject&lt;String&gt; publishSubject = PublishSubject.create();
+ Observable.create(new Observable.OnSubscribe&lt;String&gt;() {
+        @Override
+        public void call(Subscriber&lt;? super String&gt; subscriber) {
+
+            subscriber.onNext(&quot;as Bridge&quot;);
+            subscriber.onCompleted();
+        }
+    }).subscribe(publishSubject);
+
+    publishSubject.subscribe(new Observer&lt;String&gt;() {
+        @Override
+        public void onCompleted() {
+
+        }
+
+        @Override
+        public void onError(Throwable e) {
+
+        }
+
+        @Override
+        public void onNext(String s) {
+
+            LogUtil.log(&quot;subject:&quot;+s); //接收到 as Bridge
+        }
+    });
+</code></pre><p>没错，这很桥梁！</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>关于Subject，到此就介绍完了。也许你会跟我一样困惑，为什么又要多个Subject出来，除了有几个特定功能之外，其他所有的一切，Observable和Observer也都有，而且写法上也没有原来的简便。确实如此，对于几个特定功能，我也还想不到有什么应用场景，至少我还没发现有什么场景必须得用Subject来实现不可，那么问题又来了，我为什么要花这么大篇幅来介绍Subject，理由有三。其一，既然官方推出Subject，必有其道理，还没遇到不代表以后不会遇到，更不能代表你不会遇到这样的应用场景；其二，“一千个读者有一千个哈姆雷特”，我所看到的并不是全部，也许你会发掘出更有意思的东西可不是？其三，我可不想当你看完我所有关于RxJava的文章，自信已上手RxJava，当有人跟你提起Subject的时候，你一脸茫然不知道Subject是什么东西，岂不哀哉？所以呢，介绍一下Subject还是很有意义的，最起码学了比没学好，“养兵千日用兵一时”，知识不嫌多，突然哪天就用上了呢。对于Subject的理解，有异议的欢迎底下评论，一起交流进步。下一篇文章，进入RxJava操作符的使用讲解。</p>
+
       
     </div>
 
@@ -474,7 +664,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/直接拿去用/" rel="tag"># 直接拿去用</a>
+            <a href="/tags/RxJava-入门/" rel="tag"># RxJava(入门)</a>
           
         </div>
       
@@ -483,8 +673,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/22/我所理解RxJava2/" rel="next" title="我所理解的RxJava——上手其实很简单（二）">
-                <i class="fa fa-chevron-left"></i> 我所理解的RxJava——上手其实很简单（二）
+              <a href="/2016/08/27/我所理解的RxJava1/" rel="next" title="我所理解的RxJava——上手其实很简单（一）">
+                <i class="fa fa-chevron-left"></i> 我所理解的RxJava——上手其实很简单（一）
               </a>
             
           </div>
@@ -492,6 +682,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/07/直接拿去用之Dialog/" rel="prev" title="直接拿去用！几种常见Dialog，懒人必收">
+                直接拿去用！几种常见Dialog，懒人必收 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -506,10 +700,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/12/22/直接拿去用之Dialog/"
-     data-title="直接拿去用！几种常见Dialog，懒人必收"
+        <div class="ds-share flat" data-thread-key="2016/08/31/我所理解RxJava2/"
+     data-title="我所理解的RxJava——上手其实很简单（二）"
      data-content=""
-     data-url="http://yoursite.com/2016/12/22/直接拿去用之Dialog/">
+     data-url="http://yoursite.com/2016/08/31/我所理解RxJava2/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -539,8 +733,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/12/22/直接拿去用之Dialog/"
-           data-title="直接拿去用！几种常见Dialog，懒人必收" data-url="http://yoursite.com/2016/12/22/直接拿去用之Dialog/">
+      <div class="ds-thread" data-thread-key="2016/08/31/我所理解RxJava2/"
+           data-title="我所理解的RxJava——上手其实很简单（二）" data-url="http://yoursite.com/2016/08/31/我所理解RxJava2/">
       </div>
     
   </div>
@@ -564,8 +758,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/head.png"
@@ -682,6 +885,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Subject"><span class="nav-number">1.</span> <span class="nav-text">Subject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Subject的分类解析"><span class="nav-number">2.</span> <span class="nav-text">Subject的分类解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AsyncSubject"><span class="nav-number">2.1.</span> <span class="nav-text">AsyncSubject</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BehaviorSubject"><span class="nav-number">2.2.</span> <span class="nav-text">BehaviorSubject</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PublishSubject"><span class="nav-number">2.3.</span> <span class="nav-text">PublishSubject</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReplaySubject"><span class="nav-number">2.4.</span> <span class="nav-text">ReplaySubject</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#要点解答"><span class="nav-number">3.</span> <span class="nav-text">要点解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
