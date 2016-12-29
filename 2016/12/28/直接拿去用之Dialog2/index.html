@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2777417-e7cbf8f30d818458.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2777417-fee4805d1f90360d.gif?imageMogr2/auto-orient/strip">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2777417-e8e9c3e327dc24ab.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2016-12-29T03:13:02.423Z">
+<meta property="og:updated_time" content="2016-12-29T05:59:51.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="直接拿去用！几种常见Dialog2.0">
 <meta name="twitter:description" content="前言前面封装了项目中经常使用到的几种Dialog，自己在使用过程中也发现了一些问题，使用不是很方便，决定改动个别方法，故升到2.0。">
@@ -441,14 +441,16 @@
  &lt;type&gt;pom&lt;/type&gt;
 &lt;/dependency&gt;
 </code></pre><h3 id="GitHub项目地址"><a href="#GitHub项目地址" class="headerlink" title="GitHub项目地址"></a>GitHub项目地址</h3><p><a href="https://github.com/weavey/NormalSelectDialog" target="_blank" rel="external">https://github.com/weavey/NormalSelectDialog</a>,欢迎fork或star，提出宝贵意见，有其他常用的Dialog可以告知，有时间将一起封装进本库。</p>
-<h2 id="2-0改动"><a href="#2-0改动" class="headerlink" title="2.0改动"></a>2.0改动</h2><p>Dialog的属性设置与1.3版本基本无差别，改动了点击事件的接口回调,统一管理并公用,将Dialog对象返回：</p>
+<h2 id="2-0改动"><a href="#2-0改动" class="headerlink" title="2.0改动"></a>2.0改动</h2><ul>
+<li>Dialog的属性设置与1.3版本基本无差别，改动了点击事件的接口回调,统一管理并公用,将Dialog对象返回：</li>
+</ul>
 <pre><code>public interface DialogInterface {
 
 interface OnLeftAndRightClickListener&lt;T&gt; {
 
-    void clickLeftButton(T dialog, View view);
+void clickLeftButton(T dialog, View view);
 
-    void clickRightButton(T dialog, View view);
+void clickRightButton(T dialog, View view);
 }
 
 interface OnSingleClickListener&lt;T&gt; {
@@ -462,7 +464,41 @@ interface OnItemClickListener&lt;T&gt; {
 }
 
 }
-</code></pre><h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="样式一：NormalSelectionDialog"><a href="#样式一：NormalSelectionDialog" class="headerlink" title="样式一：NormalSelectionDialog"></a>样式一：NormalSelectionDialog</h3><p><img src="http://upload-images.jianshu.io/upload_images/2777417-f45c4e5c907472fc.gif?imageMogr2/auto-orient/strip" alt="NormalSelectionDialog "></p>
+</code></pre><ul>
+<li><p>将Dialog对象返回，一些比较不常用的属性可通过getDialog（）方法获取Dialog后自行设置，更加灵活。例：</p>
+<pre><code>NormalAlertDialog dialog = new NormalAlertDialog.Builder(MainActivity.this).setHeight(0.23f)  //屏幕高度*0.23
+        .setTitleVisible(true)
+        .setTitleText(&quot;温馨提示&quot;)
+        .setContentText(&quot;是否关闭对话框？&quot;)
+        .setSingleMode(true)
+        .setSingleButtonText(&quot;关闭&quot;)
+        .setCanceledOnTouchOutside(false)
+        .setSingleListener(new DialogInterface.OnSingleClickListener&lt;NormalAlertDialog&gt;() {
+            @Override
+            public void clickSingleButton(NormalAlertDialog dialog, View view) {
+                dialog.dismiss();
+            }
+        })
+        .build();
+
+//屏蔽返回键取消对话框
+dialog.getDialog().setOnKeyListener(new android.content.DialogInterface.OnKeyListener() {
+
+    @Override
+    public boolean onKey(android.content.DialogInterface dialog, int keyCode, KeyEvent
+            event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+
+            return true;
+        }
+
+        return false;
+    }
+});
+dialog.show();
+</code></pre></li>
+</ul>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="样式一：NormalSelectionDialog"><a href="#样式一：NormalSelectionDialog" class="headerlink" title="样式一：NormalSelectionDialog"></a>样式一：NormalSelectionDialog</h3><p><img src="http://upload-images.jianshu.io/upload_images/2777417-f45c4e5c907472fc.gif?imageMogr2/auto-orient/strip" alt="NormalSelectionDialog "></p>
 <p>使用如下代码：</p>
 <pre><code> ArrayList&lt;String&gt; s = new ArrayList&lt;&gt;();
 s.add(&quot;Weavey0&quot;);
