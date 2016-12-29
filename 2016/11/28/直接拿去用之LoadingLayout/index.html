@@ -109,7 +109,7 @@
 <meta property="og:site_name" content="Weavey's Blog">
 <meta property="og:description" content="前言项目里都会遇到几种页面，分别为加载中、无网络、无数据、出错四种情况，经常要使用，所以封成库引用了，方便使用，顺便分享出来。先看一下效果：">
 <meta property="og:image" content="https://dn-mhke0kuv.qbox.me/341fb9f9a8edfbe56649.gif">
-<meta property="og:updated_time" content="2016-12-28T07:48:06.048Z">
+<meta property="og:updated_time" content="2016-12-29T03:54:54.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="直接拿去用！每个App都会用到的LoadingLayout">
 <meta name="twitter:description" content="前言项目里都会遇到几种页面，分别为加载中、无网络、无数据、出错四种情况，经常要使用，所以封成库引用了，方便使用，顺便分享出来。先看一下效果：">
@@ -432,7 +432,7 @@
 <p>原理比较简单，继承FrameLayout，在xml渲染完成后，加上加载中、无网络、无数据、出错四个页面，根据需要控制显示哪一层，花了些时间，开了很多方法出来，支持很多属性的设置，算是比较实用，源码里已对各个方法的作用都加了注释，就不做过多解释了，项目GitHub地址：<a href="https://github.com/weavey/LoadingLayoutDemo" target="_blank" rel="external">https://github.com/weavey/LoadingLayoutDemo</a>，感兴趣的可以看看，欢迎指出问题。</p>
 <h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>gradle引用：</p>
 <blockquote>
-<p>compile ‘com.lai.weavey:loadinglayout:1.2’</p>
+<p>compile ‘com.lai.weavey:loadinglayout:1.3.1’</p>
 </blockquote>
 <h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><blockquote>
 <p>LoadingLayout支持全局配置，对所有使用到的地方都起效，需要在Application中配置，如下：</p>
@@ -456,9 +456,9 @@ public void onCreate() {
             .setReloadButtonTextSize(14)
             .setReloadButtonTextColor(R.color.gray)
             .setReloadButtonWidthAndHeight(150,40);
-    }
 }
-</code></pre><blockquote>
+</code></pre><p>}</p>
+<blockquote>
 <p>由于“加载中”的页面，可能每个App都不一样，因此，LoadingLayout支持自定义LoadingPage，如下：</p>
 </blockquote>
 <pre><code>LoadingLayout.getConfig().setLoadingPageLayout(R.layout.define_loading_page);
